@@ -4,6 +4,7 @@ from PyQt5 import uic
 from PyQt5.QtWidgets import QApplication, QMainWindow
 from PyQt5.QtGui import QPainter, QColor
 from random import randint
+from ui_file import Ui_Form
 
 
 class MyWidget(QMainWindow):
@@ -23,7 +24,7 @@ class MyWidget(QMainWindow):
 
     def draw_flag(self, qp):
         for _ in range(randint(2, 5)):
-            qp.setBrush(QColor(255, 255, 0))
+            qp.setBrush(QColor(randint(0, 255), randint(0, 255), randint(0, 255)))
             radius = randint(10, 200)
             x, y = self.frameGeometry().width(), self.frameGeometry().height()
             qp.drawEllipse(randint(0, x - radius), randint(0, y - radius), radius, radius)
